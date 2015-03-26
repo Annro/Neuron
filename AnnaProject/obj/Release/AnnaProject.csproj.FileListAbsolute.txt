@@ -1,0 +1,12 @@
+E:\C#\AnnaProject\AnnaProject\bin\Release\AnnaProject.exe.config
+E:\C#\AnnaProject\AnnaProject\bin\Release\AnnaProject.exe
+E:\C#\AnnaProject\AnnaProject\bin\Release\AnnaProject.pdb
+E:\C#\AnnaProject\AnnaProject\bin\Release\NeuroSystem.dll
+E:\C#\AnnaProject\AnnaProject\bin\Release\NeuroSystem.pdb
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.csprojResolveAssemblyReference.cache
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.CreateNeuron.resources
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.MainProgram.resources
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.Properties.Resources.resources
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.csproj.GenerateResource.Cache
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.exe
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.pdb

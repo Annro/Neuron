@@ -1,0 +1,4 @@
+AnnaProject/bin/*
+AnnaProject/obj/*
+NeuroSystem/bin/*
+NeuroSystem/obj/*

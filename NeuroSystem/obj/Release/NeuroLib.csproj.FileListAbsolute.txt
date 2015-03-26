@@ -1,0 +1,5 @@
+E:\C#\AnnaProject\NeuroSystem\bin\Release\NeuroSystem.dll
+E:\C#\AnnaProject\NeuroSystem\bin\Release\NeuroSystem.pdb
+E:\C#\AnnaProject\NeuroSystem\obj\Release\NeuroLib.csprojResolveAssemblyReference.cache
+E:\C#\AnnaProject\NeuroSystem\obj\Release\NeuroSystem.dll
+E:\C#\AnnaProject\NeuroSystem\obj\Release\NeuroSystem.pdb

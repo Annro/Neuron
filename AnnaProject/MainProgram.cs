@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,64 @@ namespace AnnaProject
         private void clearText(object sender, EventArgs e)
         {
             textlog.Clear();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (NET == null)
+            {
+                textlog.AppendText("Ошибка! Сеть не не создана!\r\n");
+            }
+            else
+            {
+                if (path == "")
+                {
+                    saveFileDialog1.ShowDialog();
+                    path = saveFileDialog1.FileName;
+                }
+                try
+                {
+                    NET.SaveNW(path);
+                }
+                finally
+                { }
+                textlog.AppendText("Сеть сохранена:\r\n" + path + "\r\n");
+            }
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            path = openFileDialog1.FileName;
+            if (File.Exists(path))
+            {
+                try
+                {
+                    NET = new NeuronSystem(path);
+                }
+                finally
+                { }
+
+                textlog.AppendText("Загружена сеть:\r\n" + path + "\r\n");
+
+                textlog.AppendText("Число входов: " + Convert.ToString(NET.GetX) + "\r\n");
+                textlog.AppendText("Число выходов: " + Convert.ToString(NET.GetY) + "\r\n");
+                textlog.AppendText("Число скрытых слоёв: " + Convert.ToString(NET.CountLayers - 1) + "\r\n");
+
+                for (int i = 0; i < NET.CountLayers - 1; i++)
+                {
+                    textlog.AppendText("Нейронов в " + Convert.ToString(i + 1) + " скрытом слое: "
+                                                        + Convert.ToString(NET.Layer(i).countY) + "\r\n");
+                }
+            }
+            else
+            {
+                if (path != "")
+                {
+                    textlog.AppendText("Ошибка! Файл не существует!\r\n" + path + "\r\n");
+                    path = "";
+                }
+            }
         }
 
     }
