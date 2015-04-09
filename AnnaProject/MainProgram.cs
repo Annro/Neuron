@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -114,6 +115,16 @@ namespace AnnaProject
                     path = "";
                 }
             }
+        }
+
+        private void обучениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TeachNeuronSystem teachNeuron = new TeachNeuronSystem();
+            if (teachNeuron.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+            Console.WriteLine(Environment.CurrentDirectory);
         }
 
     }

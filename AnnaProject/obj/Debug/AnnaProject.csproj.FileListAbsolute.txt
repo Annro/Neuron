@@ -10,3 +10,4 @@ E:\C#\AnnaProject\AnnaProject\obj\Debug\AnnaProject.exe
 E:\C#\AnnaProject\AnnaProject\obj\Debug\AnnaProject.pdb
 E:\C#\AnnaProject\AnnaProject\bin\Debug\NeuroSystem.dll
 E:\C#\AnnaProject\AnnaProject\bin\Debug\NeuroSystem.pdb
+E:\C#\AnnaProject\AnnaProject\obj\Debug\AnnaProject.TeachNeuronSystem.resources

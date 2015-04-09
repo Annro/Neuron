@@ -10,3 +10,4 @@ E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.Properties.Resources.resou
 E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.csproj.GenerateResource.Cache
 E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.exe
 E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.pdb
+E:\C#\AnnaProject\AnnaProject\obj\Release\AnnaProject.TeachNeuronSystem.resources
