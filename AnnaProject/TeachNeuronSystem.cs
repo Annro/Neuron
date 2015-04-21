@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,11 +16,16 @@ namespace AnnaProject
     public partial class TeachNeuronSystem : Form
     {
 
+        private int sizeout;
+
         private int indexImage = 0;
 
-        public TeachNeuronSystem()
+        private string outname;
+
+        public TeachNeuronSystem(int sizeOut)
         {
             InitializeComponent();
+            sizeout = sizeOut;
         }
 
         private void TeachNeuronSystem_Load(object sender, EventArgs e)
@@ -33,19 +39,45 @@ namespace AnnaProject
 
         private void btTeach_Click(object sender, EventArgs e)
         {
-            String str = Config.Instance.path + "\\image";
-            Console.WriteLine(str);
+
+            String str = txtDir.Text;
+            if (str == "C:\\")
+                return;
+
             DirectoryInfo dir = new DirectoryInfo(str);
             var item = dir.GetFiles();
             if (item.Length > indexImage)
             {
-                Console.WriteLine(item.ElementAt(indexImage).Name);
-                pictureBox1.ImageLocation = (str + "\\" + item.ElementAt(indexImage)).ToString();
+
+                string nameimage = item.ElementAt(indexImage).Name;
+                Console.WriteLine(str + nameimage);
+                string pattern = @"\d";
+
+                Regex r = new Regex(pattern);
+                Match m = r.Match(nameimage);
+                while (m.Success)
+                {
+                    outname = m.ToString();            
+                    m = m.NextMatch();
+                }
+                Bitmap bmp = new Bitmap(str + "\\" + item.ElementAt(indexImage));
+                Console.WriteLine(outname);
+
+                pictureBox1.Size = new System.Drawing.Size(100, 100);
+                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+                pictureBox1.Image = bmp;
+
+                Bitmap bmp1 = new Bitmap(pictureBox1.Image, new System.Drawing.Size(100, 100));
+                //Bitmap bmp = new Bitmap((str + "\\" + item.ElementAt(indexImage)));
+                TeachManager.Instance.SaveBin(outname, bmp);
+                File.WriteAllLines(txtDestDir.Text + "\\" + "teach" + outname + ".in.txt", TeachManager.Instance.mas);
+                File.WriteAllLines(txtDestDir.Text + "\\" + "teach" + outname + ".out.txt", TeachManager.Instance.mas2);
+                
             }
 
             //pictureBox1.ImageLocation = str;
 
-            //Bitmap bmp = new Bitmap(str);
+            //
 
             //SaveBin(txtDestDir.Text, txtAllFiles.Lines[num], Convert.ToString(numericUpDown2.Value), bmp);
 
@@ -59,7 +91,7 @@ namespace AnnaProject
             btTeach_Click(null, null);
         }
 
-        private void SaveBin(String path, String name, String digit, Bitmap bmp)
+        private void SaveBin(String path, String name, Bitmap bmp)
         {
 
             int W = bmp.Width;
@@ -85,23 +117,40 @@ namespace AnnaProject
                     }
                 }
             }
+            string pathWrite = txtDestDir.Text;
+            File.WriteAllLines(pathWrite + "\\" + "teach" + name + ".in.txt", mas);
 
-            File.WriteAllLines(path + "\\" + name + ".in.txt", mas);
-
-            N = Convert.ToInt32("neuron на выходе");
+            N = sizeout;
             if (N > 0)
             {
                 String[] mas2 = new string[N];
 
                 for (int i = 0; i < N; i++)
-                    mas2[i] = "ложь";
+                    mas2[i] = "0,01";
 
-                int num2 = Convert.ToInt32("цифра у картинки" - 1);
-                mas2[num2] = "истина";
+                int num2 = Convert.ToInt32(name) - 1;
+                mas2[num2] = "0,99";
 
 
-                File.WriteAllLines(path + "\\" + name + ".out.txt", mas2);
+                File.WriteAllLines(pathWrite + "\\" + "teach" + name + ".out.txt", mas2);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            txtDir.Text = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            txtDestDir.Text = folderBrowserDialog1.SelectedPath;
         }
     }
 }
