@@ -22,6 +22,8 @@ namespace AnnaProject
         String path = "";
         // 1 - идет обучение. 0 - нет
         bool run = false;
+        Graphics graphics;// полотно
+        Bitmap btm;//полотно
 
         public MainProgram()
         {
@@ -35,6 +37,7 @@ namespace AnnaProject
             {
                 CreateNeuronSystem(neuron.getSizeX, neuron.getLayers);
             }
+            TeachManager.Instance.sizeout = NET.GetY;
         }
 
         public void CreateNeuronSystem(int SizeX, int[] Layers)
@@ -52,6 +55,8 @@ namespace AnnaProject
                                                     + Convert.ToString(Layers[i]) + "\r\n");
 
             }
+
+
         }
 
         private void clearText(object sender, EventArgs e)
@@ -114,6 +119,8 @@ namespace AnnaProject
                     textlog.AppendText("Ошибка! Файл не существует!\r\n" + path + "\r\n");
                     path = "";
                 }
+                return;
+                
             }
             TeachManager.Instance.sizeout = NET.GetY;
         }
@@ -128,9 +135,12 @@ namespace AnnaProject
             TeachNeuronSystem teachNeuron = new TeachNeuronSystem(NET.GetY);
             if (teachNeuron.ShowDialog() == DialogResult.OK)
             {
-                
-            }
-            Console.WriteLine(Environment.CurrentDirectory);
+            }       
+        }
+
+        private void function_close()
+        {
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -146,6 +156,28 @@ namespace AnnaProject
                 textlog.AppendText("Не создана сеть!\r\n");
                 return;
             }
+            try
+            {
+                //if (Convert.ToDouble(txtKLern.Text) > 1 || Convert.ToDouble(txtKLern.Text) < 0.1)
+                //{
+                //    textlog.AppendText("Установите скорость обучения от 0.1 до 1!\r\n");
+                //    return;
+                //}
+
+                //if (Convert.ToDouble(txtKErr.Text) > 1 || Convert.ToDouble(txtKErr.Text) < 0.1)
+                //{
+                //    textlog.AppendText("Установите Критерий ошибки от 0.1 до 1!\r\n");
+                //    return;
+                //}
+            }
+            catch (FormatException err)
+            {
+                textlog.AppendText("Не верный формат входных данных!\n");
+                return;
+            }
+
+
+
             textlog.AppendText("Запущен процесс обучения\r\n");
 
             String strFileIn, strFileOut, strFile;
@@ -227,7 +259,22 @@ namespace AnnaProject
 
         private void MainProgram_Load(object sender, EventArgs e)
         {
-            
+            openFileDialog1.FileName = ""; // Default file name
+            openFileDialog1.DefaultExt = ".txt"; // Default file extension
+            openFileDialog1.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+
+            openFileDialog2.FileName = ""; // Default file name
+            openFileDialog2.DefaultExt = ".txt"; // Default file extension
+            openFileDialog2.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+
+            saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            btm = new Bitmap(100, 100);
+            graphics = Graphics.FromImage(btm);//привязка изображения к полотну, чтобы мы ресовали как бы по верз битмапа
+            graphics.Clear(Color.White);//очищаем белым цветом
+            pictureBox1.Image = btm;
+
+            TeachManager.Instance.createDictionary();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -256,21 +303,26 @@ namespace AnnaProject
             if (!File.Exists(strFile))
                 return;
 
-            double[] X = new double[NET.GetX];
-            double[] Y;
+
             String[] currFile;
 
-            textBox1.Text = "";
             textBox2.Text = "";
 
             // Загружаем текущий входной файл
             currFile = File.ReadAllLines(strFile);
-            textBox1.Lines = currFile;
             textlog.AppendText("Загружен файл:\r\n" + Convert.ToString(strFile) + "\r\n");
+            recognize(currFile);
+        }
+
+        private void recognize(string[] strFile)
+        {
+            textBox2.Text = "";
+            double[] X = new double[NET.GetX];
+            double[] Y;
 
             for (int i = 0; i < NET.GetX; i++)
             {
-                X[i] = Convert.ToDouble(currFile[i]);
+                X[i] = Convert.ToDouble(strFile[i]);
             }
 
             NET.NetOUT(X, out Y);
@@ -288,44 +340,80 @@ namespace AnnaProject
                     max = Y[i];
                     id = i;
                 }
-                    
+
             }
 
             textoutput.Text = (id + 1).ToString();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (NET == null)
-            {
-                textlog.AppendText("Не создана сеть!\r\n");
-                return;
-            }
-
-            double[] X = new double[NET.GetX];
-            double[] Y;
-
-            textBox2.Text = "";
-
-            // Загружаем текущий входной файл
-
-            for (int i = 0; i < NET.GetX; i++)
-            {
-                X[i] = Convert.ToDouble(textBox1.Lines[i]);
-            }
-
-            NET.NetOUT(X, out Y);
-
-            for (int i = 0; i < NET.GetY; i++)
-            {
-                textBox2.AppendText(string.Format("{0:F4}\r\n", Y[i]));
-                //textBox2.AppendText(Convert.ToString(Y[i]) + "\r\n");
-            }
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            //TeachManager.Instance.SaveBin(nametestimage.Text, "");
+            if (TeachManager.Instance.myList[nametestimage.Text] == null)
+            {
+                textlog.AppendText("Такого символа нет в каталоге");
+                return;
+            }
+            TeachManager.Instance.SaveBin(TeachManager.Instance.myList[nametestimage.Text].ToString(), btm);
+            String[] currFile = TeachManager.Instance.mas;
+            recognize(currFile);       
+        }
+
+        private void txtKLern_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        #region рисование
+        bool drawInBox = false;//разрешение на рисование
+
+        /// <summary>
+        /// Событие отмены рисования при отпускании мыши
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            drawInBox = false;
+        }
+
+        /// <summary>
+        /// Событие начала рисования
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            oldPoint = new Point(e.X, e.Y);
+            drawInBox = true;
+
+        }
+        Point oldPoint;
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drawInBox)
+            {
+                graphics.DrawLine(new Pen(Color.Black, 3), oldPoint, new Point(e.X, e.Y));//рисуем на полотне
+                pictureBox1.Image = btm;//отображаем на пикчербоксе
+                oldPoint = new Point(e.X, e.Y);
+
+            }
+        }
+        #endregion
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White);
+            pictureBox1.Image = btm;
         }
 
     }

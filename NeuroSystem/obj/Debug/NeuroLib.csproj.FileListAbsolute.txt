@@ -2,3 +2,4 @@ E:\C#\AnnaProject\NeuroSystem\bin\Debug\NeuroSystem.dll
 E:\C#\AnnaProject\NeuroSystem\bin\Debug\NeuroSystem.pdb
 E:\C#\AnnaProject\NeuroSystem\obj\Debug\NeuroSystem.dll
 E:\C#\AnnaProject\NeuroSystem\obj\Debug\NeuroSystem.pdb
+E:\C#\AnnaProject\NeuroSystem\obj\Debug\NeuroLib.csprojResolveAssemblyReference.cache

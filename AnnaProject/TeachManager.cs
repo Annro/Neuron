@@ -13,7 +13,9 @@ namespace AnnaProject
         public int sizeout;
         public String[] mas2;
         public String[] mas;
-
+        public Dictionary<string, int> myList = new Dictionary<string, int>();  
+      
+  
         private static readonly TeachManager instance = new TeachManager();
  
         public static TeachManager Instance
@@ -22,7 +24,23 @@ namespace AnnaProject
         }
  
         /// Защищенный конструктор нужен, чтобы предотвратить создание экземпляра класса Singleton
-        protected TeachManager() { }
+        protected TeachManager() 
+        {
+            
+        }
+
+        public void createDictionary(){
+            myList.Add("1", 0);
+            myList.Add("2", 1);
+            myList.Add("3", 2);
+            myList.Add("4", 3);
+            myList.Add("5", 4);
+            myList.Add("6", 5);
+            myList.Add("7", 6);
+            myList.Add("8", 7);
+            myList.Add("9", 8);
+            myList.Add("?", 9);
+        }
 
         public void SaveBin(String name, Bitmap bmp)
         {
@@ -59,7 +77,7 @@ namespace AnnaProject
                 for (int i = 0; i < N; i++)
                     mas2[i] = "0,01";
 
-                int num2 = Convert.ToInt32(name) - 1;
+                int num2 = Convert.ToInt32(name);
                 mas2[num2] = "0,99";
 
             }
