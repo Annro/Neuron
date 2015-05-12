@@ -67,13 +67,13 @@ namespace AnnaProject
                     m = m.NextMatch();
                 }
                 Bitmap bmp = new Bitmap(str + "\\" + item.ElementAt(i));
-
-                TeachManager.Instance.SaveBin(outname, bmp);
-                File.WriteAllLines(txtDestDir.Text + "\\" + outname + ".in.txt", TeachManager.Instance.mas);
+                var t = TeachManager.Instance.myListOut[Convert.ToInt32(outname)];
+                TeachManager.Instance.SaveBin(t.ToString(), bmp);
+                File.WriteAllLines(txtDestDir.Text + "\\" + t.ToString() + ".in.txt", TeachManager.Instance.mas);
 
                 if (flag)
                 {
-                    File.WriteAllLines(txtDestDir.Text + "\\" + outname + ".out.txt", TeachManager.Instance.mas2);
+                    File.WriteAllLines(txtDestDir.Text + "\\" + t.ToString() + ".out.txt", TeachManager.Instance.mas2);
                 }
                 
             }

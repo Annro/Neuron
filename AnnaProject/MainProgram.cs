@@ -342,18 +342,20 @@ namespace AnnaProject
                 }
 
             }
-
-            textoutput.Text = (id + 1).ToString();
+            var myValue = TeachManager.Instance.myListOut.FirstOrDefault(x => x.Value == (id)).Key;
+            var outputValue = TeachManager.Instance.myList.FirstOrDefault(x => x.Value == myValue).Key;
+            textoutput.Text = outputValue;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (TeachManager.Instance.myList[nametestimage.Text] == null)
+            if (!TeachManager.Instance.myList.ContainsKey(nametestimage.Text))
             {
-                textlog.AppendText("Такого символа нет в каталоге");
+                textlog.AppendText("Такого символа нет в каталоге\n");
                 return;
             }
-            TeachManager.Instance.SaveBin(TeachManager.Instance.myList[nametestimage.Text].ToString(), btm);
+            var t = TeachManager.Instance.myList[nametestimage.Text];
+            TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), btm);
             String[] currFile = TeachManager.Instance.mas;
             recognize(currFile);       
         }
@@ -414,6 +416,100 @@ namespace AnnaProject
         {
             graphics.Clear(Color.White);
             pictureBox1.Image = btm;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (NET == null)
+            {
+                textlog.AppendText("Не создана сеть!\r\n");
+                return;
+            }
+            try
+            {
+                //if (Convert.ToDouble(txtKLern.Text) > 1 || Convert.ToDouble(txtKLern.Text) < 0.1)
+                //{
+                //    textlog.AppendText("Установите скорость обучения от 0.1 до 1!\r\n");
+                //    return;
+                //}
+
+                //if (Convert.ToDouble(txtKErr.Text) > 1 || Convert.ToDouble(txtKErr.Text) < 0.1)
+                //{
+                //    textlog.AppendText("Установите Критерий ошибки от 0.1 до 1!\r\n");
+                //    return;
+                //}
+            }
+            catch (FormatException err)
+            {
+                textlog.AppendText("Не верный формат входных данных!\n");
+                return;
+            }
+
+
+
+            textlog.AppendText("Запущен процесс обучения\r\n");
+
+            String strFileIn, strFileOut, strFile;
+
+            int currPos = 0;
+            double kErr = 1E256;
+            //double kErrNorm = Convert.ToDouble(txtKErr.Text);
+            //double kLern = Convert.ToDouble(txtKLern.Text);
+
+            double[] X = new double[NET.GetX];
+            double[] Y = new double[NET.GetY];
+            String[] currFile;
+
+            btnLern.Enabled = false;
+            btnStop.Enabled = true;
+            run = true;
+
+            var t = TeachManager.Instance.myList[nametestimage.Text];
+
+            TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), btm);
+            currFile = TeachManager.Instance.mas;
+            txtLernFiles.AppendText(currFile + "\r\n");
+            while (kErr > 0.001)
+            {
+                kErr = 0;
+                // Загружаем обучающую пару
+                try
+                {
+
+                    for (int i = 0; i < NET.GetX; i++)
+                        X[i] = Convert.ToDouble(currFile[i]);
+
+
+                    for (int j = 0; j < NET.GetY; j++)
+                        if ((j) == TeachManager.Instance.myListOut[t])
+                        {
+                            Y[j] = 0.99;
+                        }
+                        else
+                        {
+                            Y[j] = 0.01;
+                        }
+                }
+                finally
+                {
+                    textlog.AppendText("Ошибка строки");
+                }
+
+                // Обучаем текущую пару
+                kErr += NET.LernNW(X, Y, 0.01);
+                textlog.AppendText("Текущая ошибка: " + Convert.ToString(kErr) + "\r\n");
+                Application.DoEvents();
+
+                    if (!run)
+                        return;
+                    
+            }
+
+            textlog.AppendText("Обучение завершено!\r\n");
+
+            btnLern.Enabled = true;
+            btnStop.Enabled = false;
+            run = false;
         }
 
     }

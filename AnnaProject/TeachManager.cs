@@ -13,9 +13,11 @@ namespace AnnaProject
         public int sizeout;
         public String[] mas2;
         public String[] mas;
-        public Dictionary<string, int> myList = new Dictionary<string, int>();  
-      
-  
+        public Dictionary<string, int> myList = new Dictionary<string, int>();
+
+
+        public Dictionary<int, int> myListOut = new Dictionary<int, int>();  
+
         private static readonly TeachManager instance = new TeachManager();
  
         public static TeachManager Instance
@@ -30,16 +32,28 @@ namespace AnnaProject
         }
 
         public void createDictionary(){
-            myList.Add("1", 0);
-            myList.Add("2", 1);
-            myList.Add("3", 2);
-            myList.Add("4", 3);
-            myList.Add("5", 4);
-            myList.Add("6", 5);
-            myList.Add("7", 6);
-            myList.Add("8", 7);
-            myList.Add("9", 8);
-            myList.Add("?", 9);
+            myList.Add("!", 33);
+            myList.Add("#", 35);
+            myList.Add("$", 36);
+            myList.Add("%", 37);
+            myList.Add("?", 63);
+            myList.Add("A", 192);
+            myList.Add("Б", 193);
+            myList.Add("B", 194);
+            myList.Add("Г", 195);
+            myList.Add("Д", 196);
+
+
+            myListOut.Add(33, 0);
+            myListOut.Add(35, 1);
+            myListOut.Add(36, 2);
+            myListOut.Add(37, 3);
+            myListOut.Add(63, 4);
+            myListOut.Add(192, 5);
+            myListOut.Add(193, 6);
+            myListOut.Add(194, 7);
+            myListOut.Add(195, 8);
+            myListOut.Add(196, 9);
         }
 
         public void SaveBin(String name, Bitmap bmp)
