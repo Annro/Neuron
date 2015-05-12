@@ -39,7 +39,7 @@ namespace AnnaProject
             myList.Add("?", 63);
             myList.Add("A", 192);
             myList.Add("Б", 193);
-            myList.Add("B", 194);
+            myList.Add("В", 194);
             myList.Add("Г", 195);
             myList.Add("Д", 196);
 
@@ -70,16 +70,17 @@ namespace AnnaProject
             {
                 for (int i = 0; i < W; i++)
                 {
-                    val = 0.3 * bmp.GetPixel(i, j).R + 0.59 * bmp.GetPixel(i, j).G + 0.11 * bmp.GetPixel(i, j).B;
+                    //val = 0.3 * bmp.GetPixel(i, j).R + 0.59 * bmp.GetPixel(i, j).G + 0.11 * bmp.GetPixel(i, j).B;
 
-                    if (val > 127)
-                    {
-                        mas[k++] = "-0,5";
-                    }
-                    else
-                    {
-                        mas[k++] = "0,5";
-                    }
+                    //if (val > 127)
+                    //{
+                    //    mas[k++] = "-0,5";
+                    //}
+                    //else
+                    //{
+                    //    mas[k++] = "0,5";
+                    //}
+                    mas[k++] = bmp.GetPixel(i, j).B == 0 ? 1.ToString() : 0.ToString();
                 }
             }
 

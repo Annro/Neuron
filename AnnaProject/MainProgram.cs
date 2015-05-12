@@ -330,7 +330,6 @@ namespace AnnaProject
             for (int i = 0; i < NET.GetY; i++)
             {
                 textBox2.AppendText(string.Format("{0:F4}\r\n", Y[i]));
-                //textBox2.AppendText(Convert.ToString(Y[i]) + "\r\n");
             }
             double y = 0, max = Y[0]; int id = 0;
             for (int i = 0; i < Y.Length; i++)
@@ -355,8 +354,14 @@ namespace AnnaProject
                 return;
             }
             var t = TeachManager.Instance.myList[nametestimage.Text];
-            TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), btm);
+            Bitmap bmpnew = new Bitmap(btm, 25, 25);
+            TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), bmpnew);
             String[] currFile = TeachManager.Instance.mas;
+            for (int i = 0; i < NET.GetX; i++)
+            {
+                Console.Write(currFile[i]);
+            }
+            
             recognize(currFile);       
         }
 
@@ -432,7 +437,6 @@ namespace AnnaProject
                 //    textlog.AppendText("Установите скорость обучения от 0.1 до 1!\r\n");
                 //    return;
                 //}
-
                 //if (Convert.ToDouble(txtKErr.Text) > 1 || Convert.ToDouble(txtKErr.Text) < 0.1)
                 //{
                 //    textlog.AppendText("Установите Критерий ошибки от 0.1 до 1!\r\n");
@@ -445,13 +449,7 @@ namespace AnnaProject
                 return;
             }
 
-
-
             textlog.AppendText("Запущен процесс обучения\r\n");
-
-            String strFileIn, strFileOut, strFile;
-
-            int currPos = 0;
             double kErr = 1E256;
             //double kErrNorm = Convert.ToDouble(txtKErr.Text);
             //double kLern = Convert.ToDouble(txtKLern.Text);
@@ -463,10 +461,14 @@ namespace AnnaProject
             btnLern.Enabled = false;
             btnStop.Enabled = true;
             run = true;
-
+            if (!TeachManager.Instance.myList.ContainsKey(nametestimage.Text))
+            {
+                textlog.AppendText("Такого символа нет в каталоге\n");
+                return;
+            }
             var t = TeachManager.Instance.myList[nametestimage.Text];
-
-            TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), btm);
+            Bitmap bmpnew = new Bitmap(btm, 25, 25);
+            TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), bmpnew);
             currFile = TeachManager.Instance.mas;
             txtLernFiles.AppendText(currFile + "\r\n");
             while (kErr > 0.001)
@@ -496,7 +498,7 @@ namespace AnnaProject
                 }
 
                 // Обучаем текущую пару
-                kErr += NET.LernNW(X, Y, 0.01);
+                kErr += NET.LernNW(X, Y, 0.3);
                 textlog.AppendText("Текущая ошибка: " + Convert.ToString(kErr) + "\r\n");
                 Application.DoEvents();
 
