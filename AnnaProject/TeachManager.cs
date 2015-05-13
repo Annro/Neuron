@@ -37,7 +37,7 @@ namespace AnnaProject
             myList.Add("$", 36);
             myList.Add("%", 37);
             myList.Add("?", 63);
-            myList.Add("A", 192);
+            myList.Add("А", 192);
             myList.Add("Б", 193);
             myList.Add("В", 194);
             myList.Add("Г", 195);

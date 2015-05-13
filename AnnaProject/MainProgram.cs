@@ -404,7 +404,7 @@ namespace AnnaProject
         {
             if (drawInBox)
             {
-                graphics.DrawLine(new Pen(Color.Black, 3), oldPoint, new Point(e.X, e.Y));//рисуем на полотне
+                graphics.DrawLine(new Pen(Color.Black, 5), oldPoint, new Point(e.X, e.Y));//рисуем на полотне
                 pictureBox1.Image = btm;//отображаем на пикчербоксе
                 oldPoint = new Point(e.X, e.Y);
 
