@@ -23,7 +23,9 @@ namespace AnnaProject
         // 1 - идет обучение. 0 - нет
         bool run = false;
         Graphics graphics;// полотно
+        Graphics graphicssmall;// полотно
         Bitmap btm;//полотно
+        Bitmap btmsmall;//полотно
 
         public MainProgram()
         {
@@ -269,10 +271,15 @@ namespace AnnaProject
 
             saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
-            btm = new Bitmap(100, 100);
+            btm = new Bitmap(125, 125);
             graphics = Graphics.FromImage(btm);//привязка изображения к полотну, чтобы мы ресовали как бы по верз битмапа
             graphics.Clear(Color.White);//очищаем белым цветом
             pictureBox1.Image = btm;
+
+            btmsmall = new Bitmap(btm, 50, 50);
+            graphicssmall = Graphics.FromImage(btmsmall);//привязка изображения к полотну, чтобы мы ресовали как бы по верз битмапа
+            graphicssmall.Clear(Color.White);//очищаем белым цветом
+            pictureBox2.Image = btmsmall;
 
             TeachManager.Instance.createDictionary();
         }
@@ -354,7 +361,7 @@ namespace AnnaProject
                 return;
             }
             var t = TeachManager.Instance.myList[nametestimage.Text];
-            Bitmap bmpnew = new Bitmap(btm, 25, 25);
+            Bitmap bmpnew = new Bitmap(btm, 50, 50);
             TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), bmpnew);
             String[] currFile = TeachManager.Instance.mas;
             for (int i = 0; i < NET.GetX; i++)
@@ -404,11 +411,13 @@ namespace AnnaProject
         {
             if (drawInBox)
             {
-                graphics.DrawLine(new Pen(Color.Black, 5), oldPoint, new Point(e.X, e.Y));//рисуем на полотне
+                graphics.DrawLine(new Pen(Color.Black, 6), oldPoint, new Point(e.X, e.Y));//рисуем на полотне
                 pictureBox1.Image = btm;//отображаем на пикчербоксе
                 oldPoint = new Point(e.X, e.Y);
 
             }
+            btmsmall = new Bitmap(btm, 50, 50);
+            pictureBox2.Image = btmsmall;
         }
         #endregion
 
@@ -421,6 +430,8 @@ namespace AnnaProject
         {
             graphics.Clear(Color.White);
             pictureBox1.Image = btm;
+            btmsmall = new Bitmap(btm, 50, 50);
+            pictureBox2.Image = btmsmall;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -467,7 +478,7 @@ namespace AnnaProject
                 return;
             }
             var t = TeachManager.Instance.myList[nametestimage.Text];
-            Bitmap bmpnew = new Bitmap(btm, 25, 25);
+            Bitmap bmpnew = new Bitmap(btm, 50, 50);
             TeachManager.Instance.SaveBin(TeachManager.Instance.myListOut[t].ToString(), bmpnew);
             currFile = TeachManager.Instance.mas;
             txtLernFiles.AppendText(currFile + "\r\n");
@@ -512,6 +523,11 @@ namespace AnnaProject
             btnLern.Enabled = true;
             btnStop.Enabled = false;
             run = false;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

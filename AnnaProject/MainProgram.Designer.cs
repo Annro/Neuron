@@ -60,8 +60,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -88,29 +90,29 @@
             // создать
             // 
             this.создать.Name = "создать";
-            this.создать.Size = new System.Drawing.Size(210, 22);
-            this.создать.Text = "Создать нейронную сеть";
+            this.создать.Size = new System.Drawing.Size(207, 22);
+            this.создать.Text = "Создать НС";
             this.создать.Click += new System.EventHandler(this.создать_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть НС";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить НС";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // обучениеToolStripMenuItem
             // 
             this.обучениеToolStripMenuItem.Name = "обучениеToolStripMenuItem";
-            this.обучениеToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.обучениеToolStripMenuItem.Text = "Обучение";
+            this.обучениеToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.обучениеToolStripMenuItem.Text = "Подготовка к обучению";
             this.обучениеToolStripMenuItem.Click += new System.EventHandler(this.обучениеToolStripMenuItem_Click);
             // 
             // textlog
@@ -182,9 +184,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 13);
+            this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Скорость обучения:";
+            this.label3.Text = "Темп обучения:";
             // 
             // txtKLern
             // 
@@ -264,7 +266,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(517, 211);
+            this.button4.Location = new System.Drawing.Point(505, 211);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 36;
@@ -274,14 +276,14 @@
             // 
             // textoutput
             // 
-            this.textoutput.Location = new System.Drawing.Point(564, 268);
+            this.textoutput.Location = new System.Drawing.Point(552, 268);
             this.textoutput.Name = "textoutput";
             this.textoutput.Size = new System.Drawing.Size(100, 20);
             this.textoutput.TabIndex = 37;
             // 
             // nametestimage
             // 
-            this.nametestimage.Location = new System.Drawing.Point(564, 240);
+            this.nametestimage.Location = new System.Drawing.Point(552, 240);
             this.nametestimage.Name = "nametestimage";
             this.nametestimage.Size = new System.Drawing.Size(100, 20);
             this.nametestimage.TabIndex = 38;
@@ -298,9 +300,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(539, 99);
+            this.pictureBox1.Location = new System.Drawing.Point(508, 83);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(125, 125);
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -310,7 +312,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(598, 211);
+            this.button5.Location = new System.Drawing.Point(586, 211);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(73, 23);
             this.button5.TabIndex = 40;
@@ -320,7 +322,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(677, 211);
+            this.button3.Location = new System.Drawing.Point(665, 211);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 41;
@@ -328,11 +330,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(639, 83);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 42;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // MainProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 302);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox1);
@@ -358,11 +371,12 @@
             this.Controls.Add(this.txtLernFiles);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainProgram";
-            this.Text = "MainProgram";
+            this.Text = "Система распознования символьных образов";
             this.Load += new System.EventHandler(this.MainProgram_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,6 +416,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
