@@ -36,12 +36,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.btTeach = new System.Windows.Forms.Button();
-            this.NextImage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(359, 122);
+            this.button2.Location = new System.Drawing.Point(359, 93);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(24, 23);
             this.button2.TabIndex = 11;
@@ -51,7 +50,7 @@
             // 
             // txtDestDir
             // 
-            this.txtDestDir.Location = new System.Drawing.Point(6, 124);
+            this.txtDestDir.Location = new System.Drawing.Point(6, 95);
             this.txtDestDir.Name = "txtDestDir";
             this.txtDestDir.ReadOnly = true;
             this.txtDestDir.Size = new System.Drawing.Size(348, 20);
@@ -61,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 108);
+            this.label2.Location = new System.Drawing.Point(12, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 13);
             this.label2.TabIndex = 9;
@@ -69,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(359, 81);
+            this.button1.Location = new System.Drawing.Point(359, 52);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(24, 23);
             this.button1.TabIndex = 8;
@@ -79,7 +78,7 @@
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(6, 83);
+            this.txtDir.Location = new System.Drawing.Point(6, 54);
             this.txtDir.Name = "txtDir";
             this.txtDir.ReadOnly = true;
             this.txtDir.Size = new System.Drawing.Size(348, 20);
@@ -89,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 67);
+            this.label1.Location = new System.Drawing.Point(12, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 6;
@@ -105,28 +104,17 @@
             this.btTeach.UseVisualStyleBackColor = true;
             this.btTeach.Click += new System.EventHandler(this.btTeach_Click);
             // 
-            // NextImage
-            // 
-            this.NextImage.Location = new System.Drawing.Point(15, 41);
-            this.NextImage.Name = "NextImage";
-            this.NextImage.Size = new System.Drawing.Size(224, 23);
-            this.NextImage.TabIndex = 3;
-            this.NextImage.Text = "Подготовка файлов для распознования";
-            this.NextImage.UseVisualStyleBackColor = true;
-            this.NextImage.Click += new System.EventHandler(this.NextImage_Click);
-            // 
             // TeachNeuronSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 156);
+            this.ClientSize = new System.Drawing.Size(386, 123);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtDestDir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtDir);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.NextImage);
             this.Controls.Add(this.btTeach);
             this.Name = "TeachNeuronSystem";
             this.Text = "TeachNeuronSystem";
@@ -146,6 +134,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btTeach;
-        private System.Windows.Forms.Button NextImage;
     }
 }

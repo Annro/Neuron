@@ -39,8 +39,8 @@ namespace AnnaProject
 
         private void NextImage_Click(object sender, EventArgs e)
         {
-            SaveBin(false);
-            this.Close();
+            //SaveBin(false);
+            //this.Close();
         }
 
         private void SaveBin(bool flag)

@@ -303,22 +303,22 @@ namespace AnnaProject
                 textlog.AppendText("Не создана сеть!\r\n");
                 return;
             }
-            openFileDialog2.ShowDialog();   
+            openFileDialog3.ShowDialog();   
 
-            String strFile = openFileDialog2.FileName;
+            String strFile = openFileDialog3.FileName;
 
             if (!File.Exists(strFile))
                 return;
 
-
-            String[] currFile;
-
             textBox2.Text = "";
 
-            // Загружаем текущий входной файл
-            currFile = File.ReadAllLines(strFile);
-            textlog.AppendText("Загружен файл:\r\n" + Convert.ToString(strFile) + "\r\n");
-            recognize(currFile);
+            Bitmap bitmaptest = new Bitmap(strFile);
+            graphics.DrawImage(bitmaptest, 0, 0, 125, 125);//рисуем на полотне
+            pictureBox1.Image = btm;//отображаем на пикчербоксе
+            //btm = new Bitmap(bitmaptest, 125, 125);
+            pictureBox1.Image = btm;
+            btmsmall = new Bitmap(btm, 50, 50);
+            pictureBox2.Image = btmsmall;
         }
 
         private void recognize(string[] strFile)
@@ -333,10 +333,11 @@ namespace AnnaProject
             }
 
             NET.NetOUT(X, out Y);
-
+            //Array.Sort(Y);
             for (int i = 0; i < NET.GetY; i++)
             {
-                textBox2.AppendText(string.Format("{0:F4}\r\n", Y[i]));
+                var testint = TeachManager.Instance.myListOut.FirstOrDefault(yy => yy.Value == i).Key;
+                textBox2.AppendText(string.Format("{0:F4} - {1}\r\n", Y[i], TeachManager.Instance.myList.FirstOrDefault(x => x.Value == testint).Key));
             }
             double y = 0, max = Y[0]; int id = 0;
             for (int i = 0; i < Y.Length; i++)
