@@ -24,3 +24,16 @@ C:\Users\Александр\Desktop\neuron\AnnaProject\AnnaProject\obj\Debug\Ann
 C:\Users\Александр\Desktop\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.Properties.Resources.resources
 C:\Users\Александр\Desktop\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.TeachNeuronSystem.resources
 C:\Users\Александр\Desktop\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.csproj.GenerateResource.Cache
+T:\neuron\AnnaProject\AnnaProject\bin\Debug\AnnaProject.exe.config
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.exe
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.pdb
+T:\neuron\AnnaProject\AnnaProject\bin\Debug\AnnaProject.exe
+T:\neuron\AnnaProject\AnnaProject\bin\Debug\AnnaProject.pdb
+T:\neuron\AnnaProject\AnnaProject\bin\Debug\NeuroSystem.dll
+T:\neuron\AnnaProject\AnnaProject\bin\Debug\NeuroSystem.pdb
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.csprojResolveAssemblyReference.cache
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.CreateNeuron.resources
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.MainProgram.resources
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.Properties.Resources.resources
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.TeachNeuronSystem.resources
+T:\neuron\AnnaProject\AnnaProject\obj\Debug\AnnaProject.csproj.GenerateResource.Cache

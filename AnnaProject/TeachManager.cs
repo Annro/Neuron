@@ -32,28 +32,60 @@ namespace AnnaProject
         }
 
         public void createDictionary(){
-            myList.Add("!", 33);
-            myList.Add("#", 35);
-            myList.Add("$", 36);
-            myList.Add("%", 37);
-            myList.Add("?", 63);
-            myList.Add("А", 192);
-            myList.Add("Б", 193);
-            myList.Add("В", 194);
-            myList.Add("Г", 195);
-            myList.Add("Д", 196);
+          
+            myList.Add("A", 65);
+            myList.Add("B", 66);
+            myList.Add("C", 67);
+            myList.Add("D", 68);
+            myList.Add("E", 69);
+            myList.Add("F", 70);
+            myList.Add("G", 71);
+            myList.Add("H", 72);
+            myList.Add("I", 73);
+            myList.Add("J", 74);
+            myList.Add("K", 75);
+            myList.Add("L", 76);
+            myList.Add("M", 77);
+            myList.Add("N", 78);
+            myList.Add("O", 79);
+            myList.Add("P", 80);
+            myList.Add("Q", 81);
+            myList.Add("R", 82);
+            myList.Add("S", 83);
+            myList.Add("T", 84);
+            myList.Add("U", 85);
+            myList.Add("V", 86);
+            myList.Add("W", 87);
+            myList.Add("X", 88);
+            myList.Add("Y", 89);
+            myList.Add("Z", 90);
 
-
-            myListOut.Add(33, 0);
-            myListOut.Add(35, 1);
-            myListOut.Add(36, 2);
-            myListOut.Add(37, 3);
-            myListOut.Add(63, 4);
-            myListOut.Add(192, 5);
-            myListOut.Add(193, 6);
-            myListOut.Add(194, 7);
-            myListOut.Add(195, 8);
-            myListOut.Add(196, 9);
+            myListOut.Add(65, 0);
+            myListOut.Add(66, 1);
+            myListOut.Add(67, 2);
+            myListOut.Add(68, 3);
+            myListOut.Add(69, 4);
+            myListOut.Add(70, 5);
+            myListOut.Add(71, 6);
+            myListOut.Add(72, 7);
+            myListOut.Add(73, 8);
+            myListOut.Add(74, 9);
+            myListOut.Add(75, 10);
+            myListOut.Add(76, 11);
+            myListOut.Add(77, 12);
+            myListOut.Add(78, 13);
+            myListOut.Add(79, 14);
+            myListOut.Add(80, 15);
+            myListOut.Add(81, 16);
+            myListOut.Add(82, 17);
+            myListOut.Add(83, 18);
+            myListOut.Add(84, 19);
+            myListOut.Add(85, 20);
+            myListOut.Add(86, 21);
+            myListOut.Add(87, 22);
+            myListOut.Add(88, 23);
+            myListOut.Add(89, 24);
+            myListOut.Add(90, 25);
         }
 
         public void SaveBin(String name, Bitmap bmp)

@@ -3,3 +3,8 @@ E:\C#\AnnaProject\NeuroSystem\bin\Debug\NeuroSystem.pdb
 E:\C#\AnnaProject\NeuroSystem\obj\Debug\NeuroSystem.dll
 E:\C#\AnnaProject\NeuroSystem\obj\Debug\NeuroSystem.pdb
 E:\C#\AnnaProject\NeuroSystem\obj\Debug\NeuroLib.csprojResolveAssemblyReference.cache
+T:\neuron\AnnaProject\NeuroSystem\bin\Debug\NeuroSystem.dll
+T:\neuron\AnnaProject\NeuroSystem\bin\Debug\NeuroSystem.pdb
+T:\neuron\AnnaProject\NeuroSystem\obj\Debug\NeuroLib.csprojResolveAssemblyReference.cache
+T:\neuron\AnnaProject\NeuroSystem\obj\Debug\NeuroSystem.dll
+T:\neuron\AnnaProject\NeuroSystem\obj\Debug\NeuroSystem.pdb
