@@ -35,7 +35,6 @@
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обучениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textlog = new System.Windows.Forms.TextBox();
-            this.clear = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button2 = new System.Windows.Forms.Button();
@@ -57,14 +56,17 @@
             this.textoutput = new System.Windows.Forms.TextBox();
             this.nametestimage = new System.Windows.Forms.TextBox();
             this.txtLernFiles = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.clear = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -73,7 +75,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(746, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(728, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -126,17 +128,6 @@
             this.textlog.Size = new System.Drawing.Size(393, 164);
             this.textlog.TabIndex = 1;
             // 
-            // clear
-            // 
-            this.clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.clear.Location = new System.Drawing.Point(419, 267);
-            this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(75, 23);
-            this.clear.TabIndex = 2;
-            this.clear.Text = "Очистить";
-            this.clear.UseVisualStyleBackColor = true;
-            this.clear.Click += new System.EventHandler(this.clearText);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -157,9 +148,9 @@
             this.btnStop.Enabled = false;
             this.btnStop.Location = new System.Drawing.Point(325, 77);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(57, 23);
+            this.btnStop.Size = new System.Drawing.Size(80, 46);
             this.btnStop.TabIndex = 25;
-            this.btnStop.Text = "Стоп";
+            this.btnStop.Text = "Остановить обучение";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
@@ -211,9 +202,9 @@
             // 
             this.btnLern.Location = new System.Drawing.Point(255, 77);
             this.btnLern.Name = "btnLern";
-            this.btnLern.Size = new System.Drawing.Size(64, 23);
+            this.btnLern.Size = new System.Drawing.Size(64, 46);
             this.btnLern.TabIndex = 19;
-            this.btnLern.Text = "Старт";
+            this.btnLern.Text = "Начать обучение";
             this.btnLern.UseVisualStyleBackColor = true;
             this.btnLern.Click += new System.EventHandler(this.btnLern_Click);
             // 
@@ -237,7 +228,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(416, 83);
+            this.label6.Location = new System.Drawing.Point(416, 77);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 32;
@@ -249,7 +240,7 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(83, 135);
+            this.textBox2.Size = new System.Drawing.Size(83, 191);
             this.textBox2.TabIndex = 30;
             // 
             // button1
@@ -268,7 +259,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(505, 211);
+            this.button4.Location = new System.Drawing.Point(639, 243);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 36;
@@ -278,14 +269,14 @@
             // 
             // textoutput
             // 
-            this.textoutput.Location = new System.Drawing.Point(552, 268);
+            this.textoutput.Location = new System.Drawing.Point(508, 246);
             this.textoutput.Name = "textoutput";
             this.textoutput.Size = new System.Drawing.Size(100, 20);
             this.textoutput.TabIndex = 37;
             // 
             // nametestimage
             // 
-            this.nametestimage.Location = new System.Drawing.Point(552, 240);
+            this.nametestimage.Location = new System.Drawing.Point(508, 214);
             this.nametestimage.Name = "nametestimage";
             this.nametestimage.Size = new System.Drawing.Size(100, 20);
             this.nametestimage.TabIndex = 38;
@@ -298,6 +289,40 @@
             this.txtLernFiles.Size = new System.Drawing.Size(121, 16);
             this.txtLernFiles.TabIndex = 28;
             this.txtLernFiles.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(639, 214);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "Обучить";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // openFileDialog3
+            // 
+            this.openFileDialog3.FileName = "openFileDialog3";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(664, 83);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 42;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // button5
+            // 
+            this.button5.Image = global::AnnaProject.Properties.Resources.w256h2561339252558DeleteRed3;
+            this.button5.Location = new System.Drawing.Point(633, 83);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(25, 26);
+            this.button5.TabIndex = 40;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // pictureBox1
             // 
@@ -312,45 +337,44 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // button5
+            // clear
             // 
-            this.button5.Location = new System.Drawing.Point(586, 211);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(73, 23);
-            this.button5.TabIndex = 40;
-            this.button5.Text = "Очистить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.clear.Image = global::AnnaProject.Properties.Resources.w256h2561339252558DeleteRed2;
+            this.clear.Location = new System.Drawing.Point(350, 129);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(32, 34);
+            this.clear.TabIndex = 2;
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clearText);
             // 
-            // button3
+            // button6
             // 
-            this.button3.Location = new System.Drawing.Point(665, 211);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "Обучить";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button6.Image = global::AnnaProject.Properties.Resources.w256h2561339252558DeleteRed3;
+            this.button6.Location = new System.Drawing.Point(611, 214);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(22, 20);
+            this.button6.TabIndex = 43;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // pictureBox2
+            // button7
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(639, 83);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.TabIndex = 42;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // openFileDialog3
-            // 
-            this.openFileDialog3.FileName = "openFileDialog3";
+            this.button7.Image = global::AnnaProject.Properties.Resources.w256h2561339252558DeleteRed3;
+            this.button7.Location = new System.Drawing.Point(611, 246);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(22, 20);
+            this.button7.TabIndex = 44;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // MainProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 302);
+            this.ClientSize = new System.Drawing.Size(728, 302);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button5);
@@ -381,8 +405,8 @@
             this.Load += new System.EventHandler(this.MainProgram_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +418,6 @@
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создать;
         private System.Windows.Forms.TextBox textlog;
-        private System.Windows.Forms.Button clear;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
@@ -424,6 +447,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.OpenFileDialog openFileDialog3;
+        private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 

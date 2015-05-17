@@ -80,6 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TeachNeuronSystem.resx">
       <DependentUpon>TeachNeuronSystem.cs</DependentUpon>
@@ -102,6 +103,18 @@
       <Project>{9478db65-10bf-4b28-b6e5-fe0b825bc5c4}</Project>
       <Name>NeuroLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w256h2561339252558DeleteRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w256h2561339252558DeleteRed1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w256h2561339252558DeleteRed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w256h2561339252558DeleteRed3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
