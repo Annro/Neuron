@@ -17,7 +17,7 @@ namespace AnnaProject
     public partial class MainProgram : Form
     {
 
-        // Собственно сама нейросеть
+        // Нейронная сеть
         NeuronSystem NET;
         // Путь к сети
         String path = "";
@@ -34,7 +34,7 @@ namespace AnnaProject
             InitializeComponent();
         }
         /// <summary>
-        /// Создание НС, с указаем сколько слоев и нейронов
+        /// Создание НС, с указыванием количества входных нейронов, выходных нейронов, скрытых слоев, а так же количество нейронов в скрытых слоях
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -53,7 +53,7 @@ namespace AnnaProject
             TeachManager.Instance.sizeout = NET.GetY;
         }
         /// <summary>
-        /// Генерация НС, с указанными слоями и нейронами
+        /// Генерация НС, с указанным количеством входных, выходных нейронов, скрытых слоев и нейронов в этих слоях
         /// </summary>
         /// <param name="SizeX"></param>
         /// <param name="Layers"></param>
@@ -154,7 +154,7 @@ namespace AnnaProject
             TeachManager.Instance.sizeout = NET.GetY;
         }
         /// <summary>
-        /// Открытие окна для подготовка выборки, которая необходима для обучения
+        /// Открытие окна для создания обучающей выборки, которая необходима для обучения НС
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -171,7 +171,7 @@ namespace AnnaProject
             }       
         }
         /// <summary>
-        /// Пусть до обучающией выборки
+        /// Путь до обучающией выборки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -182,7 +182,7 @@ namespace AnnaProject
         }
 
         /// <summary>
-        ///  Обучение
+        ///  Обучение НС
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -219,7 +219,7 @@ namespace AnnaProject
             FileInfo[] fInfo = new DirectoryInfo(txtDir.Text).GetFiles("*.in.txt");
             foreach (FileInfo f in fInfo)
             {
-                // Загружаем список файлов
+                // Загружаем список файлов in
                 strFileIn = f.FullName;
                 strFile = strFileIn.Remove(strFileIn.Length - 7);
                 strFileOut = strFile + ".out.txt";
@@ -255,7 +255,7 @@ namespace AnnaProject
                 kErr = 0;
                 for (currPos = 0; currPos < txtLernFiles.Lines.Count() - 1; currPos++)
                 {
-                    // Загружаем обучающую пару
+                    // Загружаем обучающую пару in и out
                     try
                     {
                         // Загружаем текущий входной файл
@@ -304,12 +304,12 @@ namespace AnnaProject
             saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
             btm = new Bitmap(125, 125);
-            graphics = Graphics.FromImage(btm);//привязка изображение к полотну
+            graphics = Graphics.FromImage(btm);//привязка изображения к полотну
             graphics.Clear(Color.White);//очищаем белым цветом
             pictureBox1.Image = btm;
 
             btmsmall = new Bitmap(btm, 50, 50);
-            graphicssmall = Graphics.FromImage(btmsmall);//привязка изображение к полотну
+            graphicssmall = Graphics.FromImage(btmsmall);//привязка изображения к полотну
             graphicssmall.Clear(Color.White);//очищаем белым цветом
             pictureBox2.Image = btmsmall;
 
@@ -331,7 +331,7 @@ namespace AnnaProject
             textlog1.AppendText("Обучение остановлено пользователем\r\n");
         }
         /// <summary>
-        /// Путь до картинки, которую мы нарисовали в другой программе
+        /// Путь до изображения с символом, нарисованное в другом графическом редакторе
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -487,7 +487,7 @@ namespace AnnaProject
             pictureBox2.Image = btmsmall;
         }
         /// <summary>
-        /// Обучение
+        /// Обучение НС
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -544,7 +544,7 @@ namespace AnnaProject
             while (kErr > 0.001)
             {
                 kErr = 0;
-                // Загружаем обучающую пару
+                // Загружаем обучающую пару in и out
                 try
                 {
 
@@ -584,7 +584,7 @@ namespace AnnaProject
             run = false;
         }
         /// <summary>
-        /// Очищаем текст бокс
+        /// Очищаем текстбокс
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

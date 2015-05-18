@@ -76,6 +76,9 @@
             this.пToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обучениеНСToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.распознаваниеСимволовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.просмотрСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,7 +93,8 @@
             this.файлToolStripMenuItem,
             this.пToolStripMenuItem,
             this.обучениеНСToolStripMenuItem,
-            this.распознаваниеСимволовToolStripMenuItem});
+            this.распознаваниеСимволовToolStripMenuItem,
+            this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(888, 24);
@@ -522,6 +526,27 @@
             this.распознаваниеСимволовToolStripMenuItem.Text = "Распознавание символов";
             this.распознаваниеСимволовToolStripMenuItem.Click += new System.EventHandler(this.распознаваниеСимволовToolStripMenuItem_Click);
             // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.просмотрСправкиToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem});
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            // 
+            // просмотрСправкиToolStripMenuItem
+            // 
+            this.просмотрСправкиToolStripMenuItem.Name = "просмотрСправкиToolStripMenuItem";
+            this.просмотрСправкиToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.просмотрСправкиToolStripMenuItem.Text = "Просмотр справки";
+            // 
             // MainProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,6 +625,9 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ToolStripMenuItem обучениеНСToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem распознаваниеСимволовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem просмотрСправкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
     }
 }
 
