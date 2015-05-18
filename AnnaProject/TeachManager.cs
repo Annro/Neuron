@@ -13,11 +13,16 @@ namespace AnnaProject
         public int sizeout;
         public String[] mas2;
         public String[] mas;
+
+        /// <summary>
+        /// Два словаря, со списком картинок, для обучения
+        /// </summary>
         public Dictionary<string, int> myList = new Dictionary<string, int>();
-
-
         public Dictionary<int, int> myListOut = new Dictionary<int, int>();  
 
+        /// <summary>
+        /// Синглтон
+        /// </summary>
         private static readonly TeachManager instance = new TeachManager();
  
         public static TeachManager Instance
@@ -25,12 +30,16 @@ namespace AnnaProject
         get { return instance; }
         }
  
+        /// <summary>
         /// Защищенный конструктор нужен, чтобы предотвратить создание экземпляра класса Singleton
+        /// </summary>
         protected TeachManager() 
         {
             
         }
-
+        /// <summary>
+        /// Метод создания словаря
+        /// </summary>
         public void createDictionary(){
           
             myList.Add("A", 65);
@@ -87,14 +96,17 @@ namespace AnnaProject
             myListOut.Add(89, 24);
             myListOut.Add(90, 25);
         }
-
+        /// <summary>
+        /// Генерация набора пикселей по картинки(битмапу)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="bmp"></param>
         public void SaveBin(String name, Bitmap bmp)
         {
 
             int W = bmp.Width;
             int H = bmp.Height;
             int N = W * H;
-            double val = 0;
 
             mas = new String[N];
 

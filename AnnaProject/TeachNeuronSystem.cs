@@ -15,34 +15,31 @@ namespace AnnaProject
 {
     public partial class TeachNeuronSystem : Form
     {
-
-        private int sizeout;
-
-        private int indexImage = 0;
-
-
+        
         public TeachNeuronSystem(int sizeOut)
         {
             InitializeComponent();
-            sizeout = sizeOut;
+            
         }
 
         private void TeachNeuronSystem_Load(object sender, EventArgs e)
         {
         }
-
+        /// <summary>
+        /// Подготовка файла для последующего обучения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btTeach_Click(object sender, EventArgs e)
         {
             SaveBin(true);
             this.Close();
         }
-
-        private void NextImage_Click(object sender, EventArgs e)
-        {
-            //SaveBin(false);
-            //this.Close();
-        }
-
+        /// <summary>
+        /// Подготовка файла для последующего обучения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveBin(bool flag)
         {
 
@@ -78,22 +75,45 @@ namespace AnnaProject
                 
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Путь до папки с изображениями
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             folderBrowserDialog1.ShowDialog();
             txtDir.Text = folderBrowserDialog1.SelectedPath;
         }
-
+        /// <summary>
+        /// Путь до папки куда будет сгенерирована выборка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             folderBrowserDialog1.ShowDialog();
             txtDestDir.Text = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void txtDestDir_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDir_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

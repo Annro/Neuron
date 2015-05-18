@@ -57,7 +57,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Создать нейронную сеть";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // numericUpDown3
             // 
@@ -164,7 +163,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "CreateNeuron";
             this.Text = "CreateNeuron";
-            this.Load += new System.EventHandler(this.CreateNeuron_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();

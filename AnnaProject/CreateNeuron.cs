@@ -16,13 +16,7 @@ namespace AnnaProject
         {
             InitializeComponent();
         }
-
-        private void CreateNeuron_Load(object sender, EventArgs e)
-        {
-
-        }
-
-                // Счетчик для настройки нейронов в скрытых слоях
+         // Счетчик для настройки нейронов в скрытых слоях
         NumericUpDown[] NLayers;
         // Метки скытых слоев
         Label[] NLayerLabels;
@@ -32,7 +26,9 @@ namespace AnnaProject
         int[] layers;
 
         int sizeX;
-
+        /// <summary>
+        /// Метод для создания скрытых слоев
+        /// </summary>
         void CreateNumeric()
         {
             for (int i = 0; i < countLayers; i++)
@@ -72,7 +68,9 @@ namespace AnnaProject
             numericUpDown2.Top = 71 + 39 * countLayers;
             label2.Top = 55 + 39 * countLayers;
         }
-
+        /// <summary>
+        /// Геттер колличества выходных нейронов
+        /// </summary>
         public int[] getLayers
         {
             get 
@@ -80,7 +78,9 @@ namespace AnnaProject
                 return layers;
             }
         }
-
+        /// <summary>
+        /// Геттер количества входных нейронов
+        /// </summary>
         public int getSizeX
         {
             get 
@@ -88,22 +88,11 @@ namespace AnnaProject
                 return sizeX;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-        
-        }
-
+        /// <summary>
+        /// Создание нейронной сети
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             layers = new int[countLayers + 1];

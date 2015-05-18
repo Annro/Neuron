@@ -56,6 +56,7 @@
             this.txtDestDir.Size = new System.Drawing.Size(348, 20);
             this.txtDestDir.TabIndex = 10;
             this.txtDestDir.Text = "C:\\";
+            this.txtDestDir.TextChanged += new System.EventHandler(this.txtDestDir_TextChanged);
             // 
             // label2
             // 
@@ -65,6 +66,7 @@
             this.label2.Size = new System.Drawing.Size(164, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Путь для сохранения выборки:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -84,6 +86,7 @@
             this.txtDir.Size = new System.Drawing.Size(348, 20);
             this.txtDir.TabIndex = 7;
             this.txtDir.Text = "C:\\";
+            this.txtDir.TextChanged += new System.EventHandler(this.txtDir_TextChanged);
             // 
             // label1
             // 
@@ -93,6 +96,7 @@
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Путь к изображениям:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btTeach
             // 
